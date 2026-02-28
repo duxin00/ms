@@ -1,0 +1,238 @@
+/* src/styles/pages.css */
+/* 欢迎页样式 */
+.landing-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .landing-title {
+    font-size: clamp(2.5rem, 8vw, 5rem); /* 响应式大字体 */
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+  }
+  
+  .landing-subtitle {
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    color: #64748b;
+    margin-bottom: 3rem;
+  }
+  
+  /* 首页样式 */
+  .home-page {
+    padding: 4rem 0;
+  }
+  
+  .home-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  
+  .home-title {
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  
+  .home-subtitle {
+    font-size: 1.2rem;
+    color: #64748b;
+  }
+  
+  /* 卡片布局 */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  /* 功能卡片样式 */
+  .feature-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 1px solid #e2e8f0;
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    border-color: #3b82f6;
+  }
+  
+  .card-icon {
+    font-size: 2.5rem;
+    color: #3b82f6;
+    margin-bottom: 1.5rem;
+  }
+  
+  .card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  
+  .card-desc {
+    color: #64748b;
+    line-height: 1.6;
+  }
+  
+  /* 空详情页样式 */
+  .empty-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    text-align: center;
+  }
+  
+  .empty-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  
+  .empty-desc {
+    color: #64748b;
+    margin-bottom: 2rem;
+  }
+
+  /* 应用导航页面整体布局 */
+.app-nav-page {
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  /* 左侧：目录侧边栏 */
+  .nav-sidebar {
+    width: 250px;
+    background-color: white;
+    border-right: 1px solid #e2e8f0;
+    padding: 2rem 1rem;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+  }
+  
+  .sidebar-header {
+    margin-bottom: 2rem;
+  }
+  
+  .sidebar-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  
+  .btn-small {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .nav-directory {
+    list-style: none;
+  }
+  
+  .directory-item {
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #64748b;
+    font-weight: 500;
+  }
+  
+  .directory-item:hover {
+    background-color: #f1f5f9;
+    color: #3b82f6;
+  }
+  
+  /* 右侧：分类内容区 */
+  .nav-content {
+    flex: 1;
+    padding: 3rem 2rem;
+  }
+  
+  .nav-category {
+    margin-bottom: 4rem;
+  }
+  
+  .category-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: #1e293b;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  
+  /* 链接按钮网格布局 */
+  .links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+  }
+  
+  .link-btn {
+    display: inline-block;
+    padding: 1rem 1.5rem;
+    background-color: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    color: #1e293b;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  .link-btn:hover {
+    border-color: #3b82f6;
+    color: #3b82f6;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 移动端响应式布局 */
+  @media (max-width: 768px) {
+    .app-nav-page {
+      flex-direction: column;
+    }
+  
+    .nav-sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+      border-right: none;
+      border-bottom: 1px solid #e2e8f0;
+    }
+  
+    .nav-directory {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+  
+    .directory-item {
+      margin-bottom: 0;
+      padding: 0.5rem 1rem;
+    }
+  
+    .nav-content {
+      padding: 2rem 1rem;
+    }
+  }
