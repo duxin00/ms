@@ -108,131 +108,210 @@
     margin-bottom: 2rem;
   }
 
-  /* 应用导航页面整体布局 */
+/* 应用导航页面整体布局 */
 .app-nav-page {
-    display: flex;
-    min-height: 100vh;
+  display: flex;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* 左侧：目录侧边栏,固定宽度不收缩） */
+.nav-sidebar {
+  width: 280px; /* 固定像素宽度 */
+  flex-shrink: 0; /* 核心：禁止随页面宽度收缩 */
+  background: #ffffff;
+  box-shadow: 2px 0 15px rgba(0, 0, 0, 0.05);
+  border-radius: 0 20px 20px 0;
+  padding: 2.5rem 1.5rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.sidebar-header {
+  margin-bottom: 2.5rem;
+}
+
+.sidebar-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin-bottom: 1.2rem;
+  letter-spacing: -0.3px;
+}
+
+.btn-small {
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 600;
+}
+
+.btn-small:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.35);
+}
+
+.nav-directory {
+  list-style: none;
+}
+
+.directory-item {
+  padding: 0.9rem 1.2rem;
+  margin-bottom: 0.6rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #64748b;
+  font-weight: 500;
+  border-left: 3px solid transparent;
+  position: relative;
+}
+
+.directory-item:hover {
+  background: #f0f7ff;
+  color: #2563eb;
+  border-left-color: #3b82f6;
+  transform: translateX(3px);
+}
+
+/* 右侧：分类内容区 */
+.nav-content {
+  flex: 1;
+  padding: 3.5rem 3rem;
+}
+
+.nav-category {
+  margin-bottom: 4.5rem;
+}
+
+.category-title {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.8rem;
+  position: relative;
+  letter-spacing: -0.5px;
+}
+
+.category-title::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 4px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  border-radius: 2px;
+}
+
+/* 淡灰白色现代化方框容器 */
+.category-box {
+  background: #f8fafc; /* 淡灰白色背景 */
+  border-radius: 16px; /* 大圆角，更现代 */
+  padding: 2rem; /* 内边距，让按钮不贴边 */
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03); /* 极淡阴影，增加层次 */
+  border: 1px solid #e2e8f0; /* 极淡边框，区分边界 */
+}
+
+/* 链接按钮网格布局 */
+.links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 170px); /* 固定按钮宽度170px，auto-fit自适应每行数量 */
+  gap: 1.2rem;
+  justify-content: start; /* 不足一行时左对齐，不平分宽度 */
+}
+
+/* 链接按钮：固定宽高，现代化样式 */
+.link-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 170px; /* 固定宽度，和grid的170px一致 */
+  height: 56px; /* 固定高度，长宽比协调 */
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  text-align: center;
+  text-decoration: none;
+  color: #1e293b;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.link-btn:hover {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 6px 18px rgba(59, 130, 246, 0.5);
+  transform: translateY(-4px);
+}
+
+/* 移动端响应式布局 */
+@media (max-width: 900px) {
+  .app-nav-page {
+    flex-direction: column;
   }
-  
-  /* 左侧：目录侧边栏 */
+
   .nav-sidebar {
-    width: 250px;
-    background-color: white;
-    border-right: 1px solid #e2e8f0;
-    padding: 2rem 1rem;
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    overflow-y: auto;
+    width: 100%;
+    height: auto;
+    position: relative;
+    border-right: none;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    padding: 2rem 1.5rem;
+    flex-shrink: 1; /* 移动端允许收缩 */
   }
-  
-  .sidebar-header {
-    margin-bottom: 2rem;
-  }
-  
-  .sidebar-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-  }
-  
-  .btn-small {
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-  }
-  
+
   .nav-directory {
-    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
   }
-  
+
   .directory-item {
-    padding: 0.75rem 1rem;
-    margin-bottom: 0.5rem;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    color: #64748b;
-    font-weight: 500;
+    margin-bottom: 0;
+    padding: 0.7rem 1rem;
+    border-left: none;
+    border-bottom: 2px solid transparent;
   }
-  
+
   .directory-item:hover {
-    background-color: #f1f5f9;
-    color: #3b82f6;
+    transform: none;
+    border-bottom-color: #3b82f6;
   }
-  
-  /* 右侧：分类内容区 */
+
   .nav-content {
-    flex: 1;
-    padding: 3rem 2rem;
+    padding: 2.5rem 1.5rem;
   }
-  
-  .nav-category {
-    margin-bottom: 4rem;
+
+  .category-box {
+    padding: 1.5rem;
   }
-  
-  .category-title {
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
-    color: #1e293b;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid #e2e8f0;
-  }
-  
-  /* 链接按钮网格布局 */
+
   .links-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, 150px); /* 移动端按钮稍窄 */
     gap: 1rem;
   }
-  
+
   .link-btn {
-    display: inline-block;
-    padding: 1rem 1.5rem;
-    background-color: white;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    text-align: center;
-    text-decoration: none;
-    color: #1e293b;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    width: 150px;
+    height: 52px;
+    font-size: 0.9rem;
   }
-  
-  .link-btn:hover {
-    border-color: #3b82f6;
-    color: #3b82f6;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* 移动端响应式布局 */
-  @media (max-width: 768px) {
-    .app-nav-page {
-      flex-direction: column;
-    }
-  
-    .nav-sidebar {
-      width: 100%;
-      height: auto;
-      position: relative;
-      border-right: none;
-      border-bottom: 1px solid #e2e8f0;
-    }
-  
-    .nav-directory {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-  
-    .directory-item {
-      margin-bottom: 0;
-      padding: 0.5rem 1rem;
-    }
-  
-    .nav-content {
-      padding: 2rem 1rem;
-    }
-  }
+}

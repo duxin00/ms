@@ -32,7 +32,11 @@ const AppNavPage: React.FC = () => {
                 { name: 'React官方文档', url: 'https://react.dev/' },
                 { name: 'TypeScript官方文档', url: 'https://www.typescriptlang.org/' },
                 { name: 'Vite官方文档', url: 'https://vitejs.dev/' },
-                { name: '前端面试指南', url: 'https://frontendinterviewhandbook.com/' }
+                { name: '前端面试指南', url: 'https://frontendinterviewhandbook.com/' },
+                { name: '前端面试指南', url: 'https://frontendinterviewhandbook.com/' },
+                { name: '前端面试指南', url: 'https://frontendinterviewhandbook.com/' },
+                { name: '前端面试指南', url: 'https://frontendinterviewhandbook.com/' },
+                { name: '知乎', url: 'https://www.zhihu.com/' }
             ]
         },
         {
@@ -52,7 +56,8 @@ const AppNavPage: React.FC = () => {
                 { name: 'Notion', url: 'https://www.notion.so/' },
                 { name: 'Trello', url: 'https://trello.com/' },
                 { name: 'Todoist', url: 'https://todoist.com/' },
-                { name: '1Password', url: 'https://1password.com/' }
+                { name: '1Password', url: 'https://1password.com/' },
+                { name: 'JSON在线解析', url: 'https://jsontool.cn/' },
             ]
         }
     ];
@@ -99,22 +104,27 @@ const AppNavPage: React.FC = () => {
                 {navCategories.map((category, index) => (
                     <div
                         key={category.id}
-                        ref={(el) => {categoryRefs.current[index] = el;}}
+                        ref={(el) => {
+                            categoryRefs.current[index] = el;
+                        }}
                         className="nav-category"
                     >
                         <h2 className="category-title">{category.title}</h2>
-                        <div className="links-grid">
-                            {category.links.map((link, linkIndex) => (
-                                <a
-                                    key={linkIndex}
-                                    href={link.url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="link-btn"
-                                >
-                                    {link.name}
-                                </a>
-                            ))}
+                        {/* 新增：淡灰白色方框容器 */}
+                        <div className="category-box">
+                            <div className="links-grid">
+                                {category.links.map((link, linkIndex) => (
+                                    <a
+                                        key={linkIndex}
+                                        href={link.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="link-btn"
+                                    >
+                                        {link.name}
+                                    </a>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 ))}
