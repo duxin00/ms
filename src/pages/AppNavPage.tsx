@@ -33,9 +33,6 @@ const AppNavPage: React.FC = () => {
                 { name: 'TypeScript官方文档', url: 'https://www.typescriptlang.org/' },
                 { name: 'Vite官方文档', url: 'https://vitejs.dev/' },
                 { name: '前端面试指南', url: 'https://frontendinterviewhandbook.com/' },
-                { name: '前端面试指南', url: 'https://frontendinterviewhandbook.com/' },
-                { name: '前端面试指南', url: 'https://frontendinterviewhandbook.com/' },
-                { name: '前端面试指南', url: 'https://frontendinterviewhandbook.com/' },
                 { name: '知乎', url: 'https://www.zhihu.com/' }
             ]
         },
